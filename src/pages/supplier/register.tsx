@@ -5,24 +5,22 @@ import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
 interface FormData {
-  student_id: string;
+  vendor_id: string;
   firstname: string;
   lastname: string;
-  course: string;
-  year_section: string;
-  email: string;
+  contact_person: string;
   phone: string;
+  email: string;
   photo?: File | null;
 }
 
 const initialFormData: FormData = {
-  student_id: "",
+  vendor_id: "",
   firstname: "",
   lastname: "",
-  course: "",
-  year_section: "",
-  email: "",
+  contact_person: "",
   phone: "",
+  email: "",
   photo: null,
 };
 
@@ -96,13 +94,12 @@ function Supplier_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Student ID", "studentId", "bi bi-person-vcard"],
+                          ["Vendor ID", "studentId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
-                          ["Course", "course", "bi bi-mortarboard"],
-                          ["Year & Section", "yearSection", "bi bi-people"],
-                          ["Email", "email", "bi bi-envelope", "email"],
+                          ["Contact Person", "contactPerson", "bi-person-lines-fill"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Email", "email", "bi bi-envelope", "email"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
