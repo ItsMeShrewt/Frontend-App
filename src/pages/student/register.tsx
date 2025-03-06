@@ -8,10 +8,23 @@ interface FormData {
   student_id: string;
   firstname: string;
   lastname: string;
-  course: string;
-  year_section: string;
+  age: number;
+  gender: string;
+  grade: string;
+  section: string;
+  postalcode: number;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
+  guardian_name: string;
+  guardian_contact: string;
   email: string;
   phone: string;
+  enrollment_date: string;
+  status: string;
+  birthdate: string;
+  nationality: string;
   photo?: File | null;
 }
 
@@ -19,12 +32,26 @@ const initialFormData: FormData = {
   student_id: "",
   firstname: "",
   lastname: "",
-  course: "",
-  year_section: "",
+  age: 0,
+  gender: "",
+  grade: "",
+  section: "",
+  postalcode: 0,
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
+  guardian_name: "",
+  guardian_contact: "",
   email: "",
   phone: "",
+  enrollment_date: "",
+  status: "",
+  birthdate: "",
+  nationality: "",
   photo: null,
 };
+
 
 function Student_Registration() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
@@ -99,8 +126,11 @@ function Student_Registration() {
                           ["Student ID", "studentId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
+                          ["Middle Name", "middleName", "bi bi-person"],
+                          ["Birthdate", "middleName", "bi bi-calendar"],
+                          ["Gender", "gender", "bi bi-people"],
                           ["Course", "course", "bi bi-mortarboard"],
-                          ["Year & Section", "yearSection", "bi bi-people"],
+                          ["Year & Section", "yearSection", "bi bi-list"],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],

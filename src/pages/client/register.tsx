@@ -5,7 +5,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import ProfileImage from "../../assets/profile/employee.png";
 
 interface FormData {
-  employee_id: string;
+  client_id: string;
   firstname: string;
   lastname: string;
   position: string;
@@ -16,7 +16,7 @@ interface FormData {
 }
 
 const initialFormData: FormData = {
-  employee_id: "",
+  client_id: "",
   firstname: "",
   lastname: "",
   position: "",
@@ -62,11 +62,11 @@ function Client_Registration() {
         <div className="container-fluid">
 
           <Breadcrumb
-              title="Employee Registration"
+              title="Client Registration"
               links={[
-                { text: "Employee", link: "/employees"},
+                { text: "Client", link: "/clients"},
               ]}
-              active="Register New Employee"
+              active="Register New Client"
           />
           <div className="grid grid-cols-12 gap-x-6">
             <div className="xxl:col-span-12 col-span-12">
@@ -96,13 +96,18 @@ function Client_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Employee ID", "employeeId", "bi bi-person-vcard"],
+                          ["Client ID", "employeeId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
-                          ["Position", "position", "bi bi-person-workspace"],
-                          ["Department", "department", "bi bi-building",],
+                          ["Client Type", "clientType", "bi bi-person"],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Industry", "industry", "bi bi-building", "tel"],
+                          ["Billing Address", "phone", "bi bi-geo-alt", "tel"],
+                          ["Shipping Address", "phone", "bi bi-truck", "tel"],
+                          ["Payment Terms", "phone", "bi bi-credit-card", "tel"],
+                          ["Preferred Payment Method", "phone", "bi bi-credit-card", "tel"],
+                          ["Contact Person", "phone", "bi bi-telephone", "tel"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
@@ -138,11 +143,11 @@ function Client_Registration() {
                     </div>
 
                     <div className="mt-4">
-                      <label className="block font-medium mb-1" htmlFor="biography">Biographical Info</label>
+                      <label className="block font-medium mb-1" htmlFor="biography">Client Feedback/Rating</label>
                       <textarea id="biography"
                       name="biography" rows={3}
                         className="w-full px-3 py-2 border rounded focus:outline-none"
-                        placeholder="write a short bio..." />
+                        placeholder="write a feedback..." />
                     </div>
 
                     <div className="mt-4 flex justify-end gap-4">

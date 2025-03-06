@@ -8,10 +8,18 @@ interface FormData {
   employee_id: string;
   firstname: string;
   lastname: string;
+  middlename: string;
+  birthdate: string;
+  gender: string;
   position: string;
   department: string;
   email: string;
   phone: string;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
+  postalcode: string;
   photo?: File | null;
 }
 
@@ -19,10 +27,18 @@ const initialFormData: FormData = {
   employee_id: "",
   firstname: "",
   lastname: "",
+  middlename: "",
+  birthdate: "",
+  gender: "",
   position: "",
   department: "",
   email: "",
   phone: "",
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
+  postalcode: "",
   photo: null,
 };
 
@@ -99,6 +115,9 @@ function Employee_Registration() {
                           ["Employee ID", "employeeId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
+                          ["Middle Name", "middleName", "bi bi-person"],
+                          ["Birthdate", "middleName", "bi bi-calendar"],
+                          ["Gender", "gender", "bi bi-people"],
                           ["Position", "position", "bi bi-person-workspace"],
                           ["Department", "department", "bi bi-building",],
                           ["Email", "email", "bi bi-envelope", "email"],

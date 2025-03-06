@@ -97,10 +97,13 @@ function Vendor_Registration() {
                           ["Vendor ID", "studentId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
-                          ["Course", "course", "bi bi-mortarboard"],
-                          ["Year & Section", "yearSection", "bi bi-people"],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Payment Terms", "paymentTerms", "bi bi-cash"],
+                          ["Tax Identification", "taxId", "bi bi-card-text"],
+                          ["Service/Product Offered", "serPro", "bi bi-box"],
+                          ["Delivery/Shipping Method", "serPro", "bi bi-truck"],
+                          ["Quality Certifications", "serPro", "bi bi-file-earmark-check"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">

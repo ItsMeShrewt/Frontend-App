@@ -60,7 +60,7 @@ return (
             </li>
             <li className="slide">
               <Link to='/vendors' className="side-menu__item">
-                <i className="w-6 h-4 side-menu__icon bi bi-person-fill-gear"></i>
+                <i className="w-6 h-4 side-menu__icon bi bi-shop"></i>
                 <span className="side-menu__label">
                   Manage Vendors
                 </span>
@@ -68,9 +68,57 @@ return (
             </li>
             <li className="slide">
               <Link to='/clients' className="side-menu__item">
-                <i className="w-6 h-4 side-menu__icon bi bi-person-fill-gear"></i>
+                <i className="w-6 h-4 side-menu__icon bi bi-person-fill"></i>
                 <span className="side-menu__label">
                   Manage Client
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/suppliers' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-truck"></i>
+                <span className="side-menu__label">
+                  Manage Supplier
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/partners' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-briefcase-fill"></i>
+                <span className="side-menu__label">
+                  Manage Partner
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/inventorys' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-box-fill"></i>
+                <span className="side-menu__label">
+                  Manage Inventory
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/sales' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-cart-fill"></i>
+                <span className="side-menu__label">
+                  Manage Sales
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/financials' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-cash"></i>
+                <span className="side-menu__label">
+                  Manage Financial
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/products' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-boxes"></i>
+                <span className="side-menu__label">
+                  Manage Product
                 </span>
               </Link>
             </li>
