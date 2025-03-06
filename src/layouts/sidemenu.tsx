@@ -58,6 +58,22 @@ return (
                 </span>
               </Link>
             </li>
+            <li className="slide">
+              <Link to='/vendors' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-person-fill-gear"></i>
+                <span className="side-menu__label">
+                  Manage Vendors
+                </span>
+              </Link>
+            </li>
+            <li className="slide">
+              <Link to='/clients' className="side-menu__item">
+                <i className="w-6 h-4 side-menu__icon bi bi-person-fill-gear"></i>
+                <span className="side-menu__label">
+                  Manage Client
+                </span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

@@ -1,30 +1,32 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import ProfileImage from "../../assets/profile/student.png";
 import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
+import { useState, ChangeEvent, FormEvent } from "react";
+import ProfileImage from "../../assets/profile/employee.png";
 
 interface FormData {
-  vendor_id: string;
+  employee_id: string;
   firstname: string;
   lastname: string;
-  contact_person: string;
+  position: string;
+  department: string;
   email: string;
   phone: string;
   photo?: File | null;
 }
 
 const initialFormData: FormData = {
-  vendor_id: "",
+  employee_id: "",
   firstname: "",
   lastname: "",
-  contact_person: "",
+  position: "",
+  department: "",
   email: "",
   phone: "",
   photo: null,
 };
 
-function Vendor_Registration() {
+function Client_Registration() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [imagePreview, setImagePreview] = useState<string>(ProfileImage);
 
@@ -60,11 +62,11 @@ function Vendor_Registration() {
         <div className="container-fluid">
 
           <Breadcrumb
-              title="Vendor Registration"
+              title="Employee Registration"
               links={[
-                { text: "Vendor", link: "/vendors"},
+                { text: "Employee", link: "/employees"},
               ]}
-              active="Register New Vendor"
+              active="Register New Employee"
           />
           <div className="grid grid-cols-12 gap-x-6">
             <div className="xxl:col-span-12 col-span-12">
@@ -94,11 +96,11 @@ function Vendor_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Vendor ID", "studentId", "bi bi-person-vcard"],
+                          ["Employee ID", "employeeId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
-                          ["Course", "course", "bi bi-mortarboard"],
-                          ["Year & Section", "yearSection", "bi bi-people"],
+                          ["Position", "position", "bi bi-person-workspace"],
+                          ["Department", "department", "bi bi-building",],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
@@ -161,4 +163,4 @@ function Vendor_Registration() {
   );
 }
 
-export default Vendor_Registration;
+export default Client_Registration;
