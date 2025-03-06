@@ -5,7 +5,7 @@ import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
-import ProfileImage from "../../assets/profile/student.png";
+import ProfileImage from "../../assets/profile/vendor.png";
 import { Link } from 'react-router-dom';
 
 const Vendor_List: React.FC = () => {

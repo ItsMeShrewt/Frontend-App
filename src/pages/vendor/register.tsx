@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ProfileImage from "../../assets/profile/student.png";
+import ProfileImage from "../../assets/profile/vendor.png";
 import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
@@ -11,6 +11,17 @@ interface FormData {
   contact_person: string;
   email: string;
   phone: string;
+  category: string;
+  payment_terms: string;
+  contracts: string;
+  contract_status: string;
+  delivery_shipping: string;
+  services_products: string;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
+  postalcode: string;
   photo?: File | null;
 }
 
@@ -21,6 +32,17 @@ const initialFormData: FormData = {
   contact_person: "",
   email: "",
   phone: "",
+  category: "",
+  payment_terms: "",
+  contracts: "",
+  contract_status: "",
+  delivery_shipping: "",
+  services_products: "",
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
+  postalcode: "",
   photo: null,
 };
 
@@ -99,11 +121,12 @@ function Vendor_Registration() {
                           ["Last Name", "lastName", "bi bi-person"],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Category", "category", "bi bi-tag"],
+                          ["Contracts", "contract", "bi bi-file-earmark-text"],
+                          ["Contract Status", "contactStatus", "bi bi-file-earmark-text"],
                           ["Payment Terms", "paymentTerms", "bi bi-cash"],
-                          ["Tax Identification", "taxId", "bi bi-card-text"],
                           ["Service/Product Offered", "serPro", "bi bi-box"],
                           ["Delivery/Shipping Method", "serPro", "bi bi-truck"],
-                          ["Quality Certifications", "serPro", "bi bi-file-earmark-check"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">

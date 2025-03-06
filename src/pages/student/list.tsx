@@ -71,9 +71,7 @@ const Student_List: React.FC = () => {
               ["Lourdesito Samayla", "00001124", "Bachelor of Science in Information Technology", "2B"],
               ["John Jerry Cabon", "00001125", "Bachelor of Science in Information Technology", "2B"],
               ["Julius Maderal", "00001126", "Bachelor of Science in Information Technology", "2B"],
-              ["Jade Galos", "00001127", "Bachelor of Science in Information Technology", "2B"],
-              ["", "", "Bachelor of Science in Information Technology", "2B"],
-              ["", "", "Bachelor of Science in Information Technology", "2B"]
+              ["Jade Galos", "00001127", "Bachelor of Science in Information Technology", "2B"]
             ].map((row, index) => [(index + 1) + ".", ...row]),
         ],
       }).render(gridRef.current);

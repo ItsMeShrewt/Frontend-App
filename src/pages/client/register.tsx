@@ -12,6 +12,18 @@ interface FormData {
   department: string;
   email: string;
   phone: string;
+  industry: string;
+  order_history: string;
+  payment_terms: string;
+  payment_method: string;
+  payment_status: string;
+  contact_person: string;
+  subscription_status: string;
+  postalcode: string;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
   photo?: File | null;
 }
 
@@ -23,6 +35,18 @@ const initialFormData: FormData = {
   department: "",
   email: "",
   phone: "",
+  industry: "",
+  order_history: "",
+  payment_terms: "",
+  payment_method: "",
+  payment_status: "",
+  contact_person: "",
+  subscription_status: "",
+  postalcode: "",
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
   photo: null,
 };
 
@@ -103,11 +127,12 @@ function Client_Registration() {
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
                           ["Industry", "industry", "bi bi-building", "tel"],
-                          ["Billing Address", "phone", "bi bi-geo-alt", "tel"],
-                          ["Shipping Address", "phone", "bi bi-truck", "tel"],
-                          ["Payment Terms", "phone", "bi bi-credit-card", "tel"],
-                          ["Preferred Payment Method", "phone", "bi bi-credit-card", "tel"],
+                          ["Order History", "orderHistory", "bi bi-cart"],
+                          ["Payment Terms", "paymentTerms", "bi bi-credit-card"],
+                          ["Payment Method", "paymentMethod", "bi bi-credit-card"],
+                          ["Payment Status", "paymentStatus", "bi bi-cash-stack"],
                           ["Contact Person", "phone", "bi bi-telephone", "tel"],
+                          ["Subscription Status", "subStatus", "bi bi-toggle-on"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
@@ -123,10 +148,8 @@ function Client_Registration() {
                         </div>
                       ))}
                       {[
-                          ["Region", "region", ["Region 1", "Region 2", "Region 3"]],
-                          ["Province", "province", ["Province A", "Province B", "Province C"]],
-                          ["City", "city",["City X", "City Y", "City Z"]],
-                          ["Barangay", "barangay", ["Barangay 1", "Barangay 2", "Barangay 3"]],
+                          ["Billing Address", "billingaddress",["Address 1", "Address 2", "Address 3"]],
+                          ["Shipping Address", "shippingAddress",["Address 1", "Address 2", "Address 3"]],
                       ].map(([label, name, options]) => (
                         <div key={String(name)}>
                           <label className="block font-medium mb-1">{label}</label>

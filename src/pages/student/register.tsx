@@ -8,23 +8,21 @@ interface FormData {
   student_id: string;
   firstname: string;
   lastname: string;
-  age: number;
+  middlename: string;
   gender: string;
-  grade: string;
-  section: string;
-  postalcode: number;
-  region: string;
-  province: string;
-  city: string;
-  barangay: string;
+  birthdate: string;
+  year_section: string;
   guardian_name: string;
   guardian_contact: string;
   email: string;
   phone: string;
   enrollment_date: string;
-  status: string;
-  birthdate: string;
-  nationality: string;
+  enrollment_status: string;
+  postalcode: string;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
   photo?: File | null;
 }
 
@@ -32,23 +30,21 @@ const initialFormData: FormData = {
   student_id: "",
   firstname: "",
   lastname: "",
-  age: 0,
+  middlename: "",
   gender: "",
-  grade: "",
-  section: "",
-  postalcode: 0,
-  region: "",
-  province: "",
-  city: "",
-  barangay: "",
+  birthdate: "",
+  year_section: "",
   guardian_name: "",
   guardian_contact: "",
   email: "",
   phone: "",
   enrollment_date: "",
-  status: "",
-  birthdate: "",
-  nationality: "",
+  enrollment_status: "",
+  postalcode: "",
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
   photo: null,
 };
 
@@ -128,11 +124,15 @@ function Student_Registration() {
                           ["Last Name", "lastName", "bi bi-person"],
                           ["Middle Name", "middleName", "bi bi-person"],
                           ["Birthdate", "middleName", "bi bi-calendar"],
-                          ["Gender", "gender", "bi bi-people"],
+                          ["Gender", "gender", "bi bi-gender-ambiguous"],
                           ["Course", "course", "bi bi-mortarboard"],
                           ["Year & Section", "yearSection", "bi bi-list"],
+                          ["Guardian Name", "guardianName", "bi bi-person"],
+                          ["Guardian Contact", "guardianContact", "bi bi-telephone", "tel"],
                           ["Email", "email", "bi bi-envelope", "email"],
-                          ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Student Contact", "phone", "bi bi-telephone", "tel"],
+                          ["Enrollment Date", "enrollmentDate", "bi bi-calendar-check"],
+                          ["Enrollment Status", "enrollmentStatus", "bi bi-circle-fill"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">

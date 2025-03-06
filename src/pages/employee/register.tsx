@@ -117,11 +117,17 @@ function Employee_Registration() {
                           ["Last Name", "lastName", "bi bi-person"],
                           ["Middle Name", "middleName", "bi bi-person"],
                           ["Birthdate", "middleName", "bi bi-calendar"],
-                          ["Gender", "gender", "bi bi-people"],
+                          ["Gender", "gender", "bi bi-gender-ambiguous"],
                           ["Position", "position", "bi bi-person-workspace"],
                           ["Department", "department", "bi bi-building",],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
+                          ["Salary", "salary", "bi bi-cash"],
+                          ["Hire Date", "hireDate", "bi bi-calendar-check"],
+                          ["Work Schedule", "workSched", "bi bi-clock"],
+                          ["Emergency Contact", "middleName", "bi bi-person-lines-fill"],
+                          ["Employee Type", "employeeType", "bi bi-tag"],
+                          ["Work Status", "workStatus", "bi bi-circle-fill"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
