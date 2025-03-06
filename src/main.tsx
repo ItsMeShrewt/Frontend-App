@@ -16,6 +16,12 @@ import Vendor_Registration from './pages/vendor/register.tsx';
 import Vendor_List from './pages/vendor/list.tsx';
 import Client_Registration from './pages/client/register.tsx';
 import Client_List from './pages/client/list.tsx';
+import Supplier_Registration from './pages/supplier/register.tsx';
+import Supplier_List from './pages/supplier/list.tsx';
+import Partner_Registration from './pages/partner/register.tsx';
+import Partner_List from './pages/partner/list.tsx';
+import Inventory_Registration from './pages/inventory/register.tsx';
+import Inventory_List from './pages/inventory/list.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -32,6 +38,12 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/vendor/create" element={<Vendor_Registration />} />
         <Route path="/clients" element={<Client_List />} />
         <Route path="/client/create" element={<Client_Registration />} />
+        <Route path="/suppliers" element={<Supplier_List />} />
+        <Route path="/supplier/create" element={<Supplier_Registration />} />
+        <Route path="/partners" element={<Partner_List />} />
+        <Route path="/partner/create" element={<Partner_Registration />} />
+        <Route path="/inventorys" element={<Inventory_List />} />
+        <Route path="/inventory/create" element={<Inventory_Registration />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

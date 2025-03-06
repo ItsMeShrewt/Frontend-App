@@ -1,26 +1,48 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import ProfileImage from "../../assets/profile/student.png";
+import ProfileImage from "../../assets/profile/supplier.png";
 import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
 interface FormData {
-  vendor_id: string;
+  supplier_id: string;
   firstname: string;
   lastname: string;
   contact_person: string;
   phone: string;
   email: string;
+  products_supplied: string;
+  price: string;
+  payment_terms: string;
+  delivery_shipping: string;
+  delivery_schedule: string;
+  compliance_status: string;
+  postalcode: string;
+  region: string;
+  province: string;
+  city: string;
+  barangay: string;
   photo?: File | null;
 }
 
 const initialFormData: FormData = {
-  vendor_id: "",
+  supplier_id: "",
   firstname: "",
   lastname: "",
   contact_person: "",
   phone: "",
   email: "",
+  products_supplied: "",
+  price: "",
+  payment_terms: "",
+  delivery_shipping: "",
+  delivery_schedule: "",
+  compliance_status: "",
+  postalcode: "",
+  region: "",
+  province: "",
+  city: "",
+  barangay: "",
   photo: null,
 };
 
@@ -60,11 +82,11 @@ function Supplier_Registration() {
         <div className="container-fluid">
 
           <Breadcrumb
-              title="Student Registration"
+              title="Supplier Registration"
               links={[
-                { text: "Student", link: "/students"},
+                { text: "Supplier", link: "/suppliers"},
               ]}
-              active="Register New Student"
+              active="Register New Supplier"
           />
           <div className="grid grid-cols-12 gap-x-6">
             <div className="xxl:col-span-12 col-span-12">
@@ -94,12 +116,17 @@ function Supplier_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Vendor ID", "studentId", "bi bi-person-vcard"],
+                          ["Supplier ID", "supplierId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
                           ["Contact Person", "contactPerson", "bi-person-lines-fill"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
                           ["Email", "email", "bi bi-envelope", "email"],
+                          ["Products Supplied", "productsSupplied", "bi bi-box-seam"],
+                          ["Price", "price", "bi bi-currency-dollar"],
+                          ["Payment Tems", "paymentTerms", "bi bi-credit-card"],
+                          ["Delivery/Shipping Method", "deShipMe", "bi bi-truck"],
+                          ["Compliance Status", "compStat", "bi bi-shield-check"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
@@ -135,11 +162,11 @@ function Supplier_Registration() {
                     </div>
 
                     <div className="mt-4">
-                      <label className="block font-medium mb-1" htmlFor="biography">Biographical Info</label>
+                      <label className="block font-medium mb-1" htmlFor="biography">Note/Remarks</label>
                       <textarea id="biography"
                       name="biography" rows={3}
                         className="w-full px-3 py-2 border rounded focus:outline-none"
-                        placeholder="write a short bio..." />
+                        placeholder="write a short remarks..." />
                     </div>
 
                     <div className="mt-4 flex justify-end gap-4">

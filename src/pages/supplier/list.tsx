@@ -5,7 +5,7 @@ import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
-import ProfileImage from "../../assets/profile/student.png";
+import ProfileImage from "../../assets/profile/supplier.png";
 import { Link } from 'react-router-dom';
 
 const Supplier_List: React.FC = () => {
@@ -17,7 +17,7 @@ const Supplier_List: React.FC = () => {
         columns: [
           { name: "#", width: "10px"},
           {
-            name: "Student Name",
+            name: "Supplier Name",
             width: "200px",
             formatter: (_, row) =>
               html(`
@@ -28,9 +28,9 @@ const Supplier_List: React.FC = () => {
                 </div>
                 `)
           },
-          { name: "Student ID", width: "100px" },
-          { name: "Course", width: "200px" },
-          { name: "Year & Section", width: "100px" },
+          { name: "Supplier ID", width: "100px" },
+          { name: "Products Supplied", width: "200px" },
+          { name: "Phone", width: "100px" },
           {
               name: "Action",
               width: "80px",
@@ -87,14 +87,14 @@ const Supplier_List: React.FC = () => {
         <div className="main-content app-content">
           <div className="container-fluid">
             <Breadcrumb
-                title="Manage Students"
+                title="Manage Suppliers"
                 links={[
-                  { text: "Dashboard", link: "/students" },
+                  { text: "Dashboard", link: "/suppliers" },
                 ]}
-                active="Students"
+                active="Supplier"
                 buttons={
-                  <Link to="/student/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
-                    <i className="ri-add-line"></i> Add New Student
+                  <Link to="/supplier/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
+                    <i className="ri-add-line"></i> Add New Supplier
                   </Link>
                 }
             />
