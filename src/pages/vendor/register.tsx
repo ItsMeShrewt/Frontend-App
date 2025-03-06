@@ -5,22 +5,20 @@ import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
 interface FormData {
-  student_id: string;
+  vendor_id: string;
   firstname: string;
   lastname: string;
-  course: string;
-  year_section: string;
+  contact_person: string;
   email: string;
   phone: string;
   photo?: File | null;
 }
 
 const initialFormData: FormData = {
-  student_id: "",
+  vendor_id: "",
   firstname: "",
   lastname: "",
-  course: "",
-  year_section: "",
+  contact_person: "",
   email: "",
   phone: "",
   photo: null,
@@ -62,9 +60,9 @@ function Vendor_Registration() {
         <div className="container-fluid">
 
           <Breadcrumb
-              title="Student Registration"
+              title="Vendor Registration"
               links={[
-                { text: "Student", link: "/students"},
+                { text: "Vendor", link: "/vendors"},
               ]}
               active="Register New Student"
           />
@@ -96,7 +94,7 @@ function Vendor_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Student ID", "studentId", "bi bi-person-vcard"],
+                          ["Vendor ID", "studentId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
                           ["Course", "course", "bi bi-mortarboard"],

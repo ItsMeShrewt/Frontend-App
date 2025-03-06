@@ -17,7 +17,7 @@ const Vendor_List: React.FC = () => {
         columns: [
           { name: "#", width: "10px"},
           {
-            name: "Student Name",
+            name: "Vendor Name",
             width: "200px",
             formatter: (_, row) =>
               html(`
@@ -28,9 +28,9 @@ const Vendor_List: React.FC = () => {
                 </div>
                 `)
           },
-          { name: "Student ID", width: "100px" },
-          { name: "Course", width: "200px" },
-          { name: "Year & Section", width: "100px" },
+          { name: "Vendor ID", width: "100px" },
+          { name: "Contact Person", width: "200px" },
+          { name: "Email", width: "100px" },
           {
               name: "Action",
               width: "80px",
@@ -87,14 +87,14 @@ const Vendor_List: React.FC = () => {
         <div className="main-content app-content">
           <div className="container-fluid">
             <Breadcrumb
-                title="Manage Students"
+                title="Manage Vendors"
                 links={[
-                  { text: "Dashboard", link: "/students" },
+                  { text: "Dashboard", link: "/vendors" },
                 ]}
                 active="Students"
                 buttons={
                   <Link to="/student/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
-                    <i className="ri-add-line"></i> Add New Student
+                    <i className="ri-add-line"></i> Add New Vendor
                   </Link>
                 }
             />
