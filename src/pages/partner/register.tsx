@@ -86,11 +86,11 @@ function Partner_Registration() {
         <div className="container-fluid">
 
           <Breadcrumb
-              title="Client Registration"
+              title="Partner Registration"
               links={[
-                { text: "Client", link: "/clients"},
+                { text: "Partner", link: "/partners"},
               ]}
-              active="Register New Client"
+              active="Register New Partner"
           />
           <div className="grid grid-cols-12 gap-x-6">
             <div className="xxl:col-span-12 col-span-12">
@@ -120,19 +120,19 @@ function Partner_Registration() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["Client ID", "employeeId", "bi bi-person-vcard"],
+                          ["Partner ID", "employeeId", "bi bi-person-vcard"],
                           ["First Name", "firstName", "bi bi-person"],
                           ["Last Name", "lastName", "bi bi-person"],
-                          ["Client Type", "clientType", "bi bi-person"],
+                          ["Contact Person", "contactType", "bi bi-person-lines-fill"],
                           ["Email", "email", "bi bi-envelope", "email"],
                           ["Phone", "phone", "bi bi-telephone", "tel"],
-                          ["Industry", "industry", "bi bi-building", "tel"],
-                          ["Order History", "orderHistory", "bi bi-cart"],
-                          ["Payment Terms", "paymentTerms", "bi bi-credit-card"],
-                          ["Payment Method", "paymentMethod", "bi bi-credit-card"],
-                          ["Payment Status", "paymentStatus", "bi bi-cash-stack"],
-                          ["Contact Person", "phone", "bi bi-telephone", "tel"],
-                          ["Subscription Status", "subStatus", "bi bi-toggle-on"],
+                          ["Business Type", "businessType", "bi bi-briefcase"],
+                          ["Collaboration Type", "collaborationType", "bi bi-people"],
+                          ["Revenue Sharing", "paymentTerms", "bi bi-graph-up"],
+                          ["Contract Duration", "paymentMethod", "bi bi-credit-card"],
+                          ["Commission Rate", "paymentStatus", "bi bi-cash-stack"],
+                          ["Legal Agreements", "phone", "bi bi-telephone", "tel"],
+                          ["Marketing Contribution", "subStatus", "bi bi-toggle-on"],
                           ["Postal Code", "postalCode", "bi bi-mailbox"],
                       ].map(([label, name, icon, type = "text"]) => (
                         <div key={name} className="relative">
@@ -148,8 +148,10 @@ function Partner_Registration() {
                         </div>
                       ))}
                       {[
-                          ["Billing Address", "billingaddress",["Address 1", "Address 2", "Address 3"]],
-                          ["Shipping Address", "shippingAddress",["Address 1", "Address 2", "Address 3"]],
+                          ["Region", "region", ["Region 1", "Region 2", "Region 3"]],
+                          ["Province", "province", ["Province A", "Province B", "Province C"]],
+                          ["City", "city",["City X", "City Y", "City Z"]],
+                          ["Barangay", "barangay", ["Barangay 1", "Barangay 2", "Barangay 3"]],
                       ].map(([label, name, options]) => (
                         <div key={String(name)}>
                           <label className="block font-medium mb-1">{label}</label>

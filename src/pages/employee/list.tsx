@@ -30,7 +30,7 @@ const Employee_List: React.FC = () => {
           },
           { name: "Email", width: "200px" },
           { name: "Department", width: "150px" },
-          { name: "Phone", width: "100px" },
+          { name: "Phone Number", width: "100px" },
           {
               name: "Action",
               width: "80px",

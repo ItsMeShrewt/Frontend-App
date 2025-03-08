@@ -22,6 +22,12 @@ import Partner_Registration from './pages/partner/register.tsx';
 import Partner_List from './pages/partner/list.tsx';
 import Inventory_Registration from './pages/inventory/register.tsx';
 import Inventory_List from './pages/inventory/list.tsx';
+import Sales_Registration from './pages/sales/register.tsx';
+import Sales_List from './pages/sales/list.tsx';
+import Financial_Registration from './pages/financial/register.tsx';
+import Financial_List from './pages/financial/list.tsx';
+import Product_Registration from './pages/product/register.tsx';
+import Product_List from './pages/product/list.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -44,6 +50,12 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/partner/create" element={<Partner_Registration />} />
         <Route path="/inventorys" element={<Inventory_List />} />
         <Route path="/inventory/create" element={<Inventory_Registration />} />
+        <Route path="/sales" element={<Sales_List />} />
+        <Route path="/sale/create" element={<Sales_Registration />} />
+        <Route path="/financials" element={<Financial_List />} />
+        <Route path="/financial/create" element={<Financial_Registration />} />
+        <Route path="/products" element={<Product_List />} />
+        <Route path="/product/create" element={<Product_Registration />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
