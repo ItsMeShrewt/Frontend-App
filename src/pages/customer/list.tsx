@@ -17,7 +17,7 @@ const Customer_List: React.FC = () => {
         columns: [
           { name: "#", width: "10px"},
           {
-            name: "Customer Name",
+            name: "Item Name",
             width: "200px",
             formatter: (_, row) =>
               html(`
@@ -28,12 +28,12 @@ const Customer_List: React.FC = () => {
                 </div>
                 `)
           },
-          { name: "Email", width: "200px" },
-          { name: "Company", width: "150px" },
-          { name: "Credit", width: "100px" },
+          { name: "Quantity", width: "200px" },
+          { name: "Category", width: "150px" },
+          { name: "Status", width: "100px" },
           {
               name: "Action",
-              width: "80px",
+              width: "110px",
               formatter: () =>
                 html(`
                     <div class="flex justify-center gap-2">
@@ -54,26 +54,12 @@ const Customer_List: React.FC = () => {
         data: [
 
             ...[
-              ["John Doe", "johndoe@example.com", "Acme Corp", "$500"],
-              ["Jane Smith", "janesmith@example.com", "TechSoft", "$700"],
-              ["Mark Brown", "markbrown@example.com", "Innovate Inc", "$1000"],
-              ["Alice Johnson", "alicej@example.com", "NextGen Solutions", "$1200"],
-              ["Robert White", "robertw@example", "SoftServe", "$800"],
-              ["Emily Davis", "emilyd@example.com", "CloudTech", "$950"],
-              ["Michael Lee", "michaell@example.com", "FinCorp", "$1100"],
-              ["Sarah Kim", "sarahk@example.com", "WebWorks", "$600"],
-              ["William Harris", "williamh@example.com", "MediaHub", "$1300"],
-              ["Olivia Martinez", "oliviam@example.com", "Visionary LLC", "$400"],
-              ["David Wilson", "davidw@example.com", "EcoBuild", "$750"],
-              ["Sophia Thomas", "sophiat@example.com", "CyberSecure", "$1400"],
-              ["Daniel Moore", "danielm@example.com", "GreenTech", "$500"],
-              ["Mia Scott", "mias@example.com", "Smart Solutions", "$670"],
-              ["James Taylor", "jamest@example.com", "ByteCode", "$1500"],
-              ["Issabela Clark", "issabelac@example.com", "LogicWorks", "$900"],
-              ["Benjamin Lewis", "benjaminl@example.com", "QuantumSoft", "$560"],
-              ["Charlotte Young", "charlottey@example.com", "CodeCrafters", "$780"],
-              ["Henry Walker", "henryw@example.com", "SmartData", "$430"],
-              ["Ava Hall", "avah@example.com", "SecureNet", "$860"]
+                ["Lumber 2x2x3",     "50 pcs",    "Construction",   "Available"],
+                ["Umbrella Nails",   "10 boxes",  "Hardware",       "Low Stock"],
+                ["Roof",             "20 sheets", "Construction",   "Available"],
+                ["Plywood 4x8",      "30 sheets", "Construction",   "Out of Stock"],
+                ["Cement (40kg)",    "100 bags",  "Construction",   "Available"],
+                ["Paint 1L",         "40 cans",   "Painting",       "Low Stock"]
             ].map((row, index) => [(index + 1) + ".", ...row]),
         ],
       }).render(gridRef.current);
@@ -87,14 +73,14 @@ const Customer_List: React.FC = () => {
         <div className="main-content app-content">
           <div className="container-fluid">
             <Breadcrumb
-                title="Manage Customers"
+                title="Manage Inventory"
                 links={[
                   { text: " Dashboard", link: "/customers" },
                 ]}
-                active="Customers"
+                active="Warehouse A"
                 buttons={
                   <Link to="/customer/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
-                    <i className="ri-add-line"></i> Add New Customer
+                    <i className="ri-add-line"></i> Add New Item
                   </Link>
                 }
             />

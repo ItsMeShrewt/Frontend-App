@@ -5,8 +5,8 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import ProfileImage from "../../assets/avatar.png";
 
 interface FormData {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   company: string;
   email: string;
   phone: string;
@@ -14,13 +14,14 @@ interface FormData {
   province: string;
   city: string;
   barangay: string;
-  postalcode: string;
+  postalCode: string;
+  biography: string;
   photo?: File | null;
 }
 
 const initialFormData: FormData = {
-  firstname: "",
-  lastname: "",
+  firstName: "",
+  lastName: "",
   company: "",
   email: "",
   phone: "",
@@ -28,7 +29,8 @@ const initialFormData: FormData = {
   province: "",
   city: "",
   barangay: "",
-  postalcode: "",
+  postalCode: "",
+  biography: "",
   photo: null,
 };
 
@@ -36,7 +38,7 @@ function Customer_Registration() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [imagePreview, setImagePreview] = useState<string>(ProfileImage);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -66,13 +68,12 @@ function Customer_Registration() {
       <Sidemenu />
       <div className="main-content app-content">
         <div className="container-fluid">
-
           <Breadcrumb
-              title="Customer Registration"
-              links={[
-                { text: "Customers", link: "/customers"},
-              ]}
-              active="Register New Customer"
+            title="Customer Registration"
+            links={[
+              { text: "Customers", link: "/customers" },
+            ]}
+            active="Register New Customer"
           />
           <div className="grid grid-cols-12 gap-x-6">
             <div className="xxl:col-span-12 col-span-12">
@@ -81,9 +82,9 @@ function Customer_Registration() {
                   <form onSubmit={handleSubmit}>
                     <div className="mb-4 flex items-start gap-4">
                       <span className="avatar avatar-xxl">
-                          <img src={imagePreview} alt="Profile" id="profile-img" />
+                        <img src={imagePreview} alt="Profile" id="profile-img" />
                       </span>
-                      <div className="mt-2">
+                      <div>
                         <label className="block font-medium mb-2">Profile Picture</label>
                         <div className="flex gap-2">
                           <label className="bg-gray-300 text-dark px-4 py-2 rounded cursor-pointer">
@@ -99,41 +100,44 @@ function Customer_Registration() {
                     </div>
 
                     <hr className="mt-3 mb-4" />
-
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                          ["First Name", "firstName", "bi bi-person"],
-                          ["Last Name", "lastName", "bi bi-person"],
-                          ["Company", "company", "bi bi-building"],
-                          ["Email", "email", "bi bi-envelope", "email"],
-                          ["Phone", "phone", "bi bi-telephone", "tel"],
-                          ["Postal Code", "postalCode", "bi bi-mailbox"],
-                      ].map(([label, name, icon, type = "text"]) => (
+                        ["First Name", "firstName", "bi bi-person"],
+                        ["Last Name", "lastName", "bi bi-person"],
+                        ["Company", "company", "bi bi-building"],
+                        ["Email", "email", "bi bi-envelope"],
+                        ["Phone", "phone", "bi bi-telephone"],
+                        ["Postal Code", "postalCode", "bi bi-mailbox"],
+                      ].map(([label, name, icon]) => (
                         <div key={name} className="relative">
                           <label className="block font-medium mb-1" htmlFor={name}>{label}</label>
                           <div className="relative">
-                            <input type={type} id={name} name={name} onChange={handleChange}
+                            <input
+                              type={name === "email" ? "email" : "text"}
+                              id={name}
+                              name={name}
+                              onChange={handleChange}
                               className="ti-form-input rounded-sm ps-11 focus:z-10"
-                              placeholder={`Enter ${label}`} />
-                            <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-                              <i className={icon}></i>
-                            </div>
+                              placeholder={`Enter ${label}`}
+                            />
+                            <i className={`absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4 ${icon}`}></i>
                           </div>
                         </div>
                       ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                       {[
-                          ["Region", "region", ["Region 1", "Region 2", "Region 3"]],
-                          ["Province", "province", ["Province A", "Province B", "Province C"]],
-                          ["City", "city",["City X", "City Y", "City Z"]],
-                          ["Barangay", "barangay", ["Barangay 1", "Barangay 2", "Barangay 3"]],
+                        ["Region", "region", ["Region 1", "Region 2", "Region 3"]],
+                        ["Province", "province", ["Province A", "Province B", "Province C"]],
+                        ["City", "city", ["City X", "City Y", "City Z"]],
+                        ["Barangay", "barangay", ["Barangay 1", "Barangay 2", "Barangay 3"]],
                       ].map(([label, name, options]) => (
                         <div key={String(name)}>
                           <label className="block font-medium mb-1">{label}</label>
-                          <select id={String(name)} name={String(name)} 
-                            onChange={handleChange}
-                            className="ti-form-input rounded-sm focus:z-10">
+                          <select id={String(name)} name={String(name)} onChange={handleChange} className="ti-form-input rounded-sm focus:z-10">
                             <option value="">Select {label}</option>
-                            {(options as string[]).map((option: string, index: number)=> (
+                            {(options as string[]).map((option, index) => (
                               <option key={index} value={option}>{option}</option>
                             ))}
                           </select>
@@ -143,14 +147,20 @@ function Customer_Registration() {
 
                     <div className="mt-4">
                       <label className="block font-medium mb-1" htmlFor="biography">Biographical Info</label>
-                      <textarea id="biography"
-                      name="biography" rows={3}
+                      <textarea
+                        id="biography"
+                        name="biography"
+                        rows={3}
                         className="w-full px-3 py-2 border rounded focus:outline-none"
-                        placeholder="write a short bio..." />
+                        placeholder="Write a short bio..."
+                        onChange={handleChange}
+                      />
                     </div>
 
                     <div className="mt-4 flex justify-end gap-4">
-                      <button type="reset" className="bg-gray-300  px-4 py-2 rounded" onClick={() => setFormData(initialFormData)}>Reset</button>
+                      <button type="reset" className="bg-gray-300 px-4 py-2 rounded" onClick={() => setFormData(initialFormData)}>
+                        Reset
+                      </button>
                       <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
                         <i className="bi bi-save"></i>
                         <span className="px-3">Submit Record</span>

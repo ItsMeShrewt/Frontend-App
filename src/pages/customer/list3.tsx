@@ -5,10 +5,10 @@ import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
-import ProfileImage from "../../assets/profile/vendor.png";
+import ProfileImage from "../../assets/avatar.png";
 import { Link } from 'react-router-dom';
 
-const Vendor_List: React.FC = () => {
+const Customer_List3: React.FC = () => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect (() => {
@@ -17,7 +17,7 @@ const Vendor_List: React.FC = () => {
         columns: [
           { name: "#", width: "10px"},
           {
-            name: "Vendor Name",
+            name: "Item Name",
             width: "200px",
             formatter: (_, row) =>
               html(`
@@ -28,12 +28,12 @@ const Vendor_List: React.FC = () => {
                 </div>
                 `)
           },
-          { name: "Vendor ID", width: "100px" },
-          { name: "Contact Person", width: "200px" },
-          { name: "Phone Number", width: "100px" },
+          { name: "Quantity", width: "200px" },
+          { name: "Category", width: "150px" },
+          { name: "Status", width: "100px" },
           {
               name: "Action",
-              width: "80px",
+              width: "110px",
               formatter: () =>
                 html(`
                     <div class="flex justify-center gap-2">
@@ -54,26 +54,12 @@ const Vendor_List: React.FC = () => {
         data: [
 
             ...[
-              ["ABC Supplies", "V001", "John Doe", "09123456701"],
-              ["XYZ Traders", "V002", "Jane Smith", "09123456702"],
-              ["LMN Enterprises", "V003", "Mark Brown", "09123456703"],
-              ["Global Goods", "V004", "Alice Johnson", "09123456704"],
-              ["Quick Mart", "V005", "Robert White", "09123456705"],
-              ["Speedy Supply", "V006", "Emily Davis", "09123456706"],
-              ["Quality Ventures", "V007", "Michael Scott", "09123456707"],
-              ["Metro Merchants", "V008", "Sarah Lee", "09123456708"],
-              ["Reliable Retail", "V009", "David Miller", "09123456709"],
-              ["Elite Imports", "V010", "Laura Wilson", "09123456710"],
-              ["Mega Distributors", "V011", "James Anderson", "09123456711"],
-              ["Superior Sellers", "V012", "Patricia Adams", "09123456712"],
-              ["Smart Trade", "V013", "Daniel Martinez", "09123456713"],
-              ["Bright Solutions", "V014", "Lisa Clark", "09123456714"],
-              ["Pro Wholesale", "V015", "Joseph Walker", "09123456715"],
-              ["Fresh Market", "V016", "Nancy Hall", "09123456716"],
-              ["EverGreen Goods", "V017", "Kevin Allen", "09123456717"],
-              ["Sunshine Supply", "V018", "Betty Harris", "09123456718"],
-              ["Trusted Traders", "V019", "Chris Young", "09123456719"],
-              ["Global Reach", "V020", "Samantha King", "09123456720"]              
+              ["Lumber 2x2x3",     "50 pcs",    "Construction",   "Available"],
+              ["Umbrella Nails",   "10 boxes",  "Hardware",       "Low Stock"],
+              ["Roof",             "20 sheets", "Construction",   "Available"],
+              ["Plywood 4x8",      "30 sheets", "Construction",   "Out of Stock"],
+              ["Cement (40kg)",    "100 bags",  "Construction",   "Available"],
+              ["Paint 1L",         "40 cans",   "Painting",       "Low Stock"]
             ].map((row, index) => [(index + 1) + ".", ...row]),
         ],
       }).render(gridRef.current);
@@ -87,14 +73,14 @@ const Vendor_List: React.FC = () => {
         <div className="main-content app-content">
           <div className="container-fluid">
             <Breadcrumb
-                title="Manage Vendors"
+                title="Manage Inventory"
                 links={[
-                  { text: "Dashboard", link: "/vendors" },
+                  { text: " Dashboard", link: "/customers" },
                 ]}
-                active="Vendors"
+                active="Warehouse C"
                 buttons={
-                  <Link to="/vendor/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
-                    <i className="ri-add-line"></i> Add New Vendor
+                  <Link to="/customer/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
+                    <i className="ri-add-line"></i> Add New Item
                   </Link>
                 }
             />
@@ -114,4 +100,4 @@ const Vendor_List: React.FC = () => {
   );
 };
 
-export default Vendor_List;
+export default Customer_List3;

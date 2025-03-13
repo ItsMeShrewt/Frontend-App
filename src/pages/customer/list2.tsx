@@ -5,10 +5,10 @@ import Breadcrumb from "../../components/breadcrums";
 import Header from "../../layouts/header";
 import Sidemenu from "../../layouts/sidemenu";
 
-import ProfileImage from "../../assets/profile/employee.png";
+import ProfileImage from "../../assets/avatar.png";
 import { Link } from 'react-router-dom';
 
-const Partner_List: React.FC = () => {
+const Customer_List2: React.FC = () => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect (() => {
@@ -17,8 +17,8 @@ const Partner_List: React.FC = () => {
         columns: [
           { name: "#", width: "10px"},
           {
-            name: "Partner Name",
-            width: "150px",
+            name: "Item Name",
+            width: "200px",
             formatter: (_, row) =>
               html(`
                 <div class="flex items-center gap-3">
@@ -28,12 +28,12 @@ const Partner_List: React.FC = () => {
                 </div>
                 `)
           },
-          { name: "Partner ID", width: "150px" },
-          { name: "Collaboration Type", width: "250px" },
-          { name: "Phone Number", width: "80px" },
+          { name: "Quantity", width: "200px" },
+          { name: "Category", width: "150px" },
+          { name: "Status", width: "100px" },
           {
               name: "Action",
-              width: "80px",
+              width: "110px",
               formatter: () =>
                 html(`
                     <div class="flex justify-center gap-2">
@@ -54,26 +54,12 @@ const Partner_List: React.FC = () => {
         data: [
 
             ...[
-              ["ABC Corporation", "P001", "Joint Venture", "09123456701"],
-              ["XYZ Solutions", "P002", "Marketing Partnership", "09123456702"],
-              ["LMN Associates", "P003", "Strategic Alliance", "09123456703"],
-              ["Global Partners", "P004", "Distribution Partnership", "09123456704"],
-              ["Quick Expansion", "P005", "Licensing Agreement", "09123456705"],
-              ["Speedy Growth", "P006", "Technology Collaboration", "09123456706"],
-              ["Quality Alliance", "P007", "Affiliate Partnership", "09123456707"],
-              ["Metro Holdings", "P008", "Sponsorship", "09123456708"],
-              ["Reliable Network", "P009", "Outsourcing Agreement", "09123456709"],
-              ["Elite Connections", "P010", "Financial Partnership", "09123456710"],
-              ["Mega Corporations", "P011", "Development Partnership", "09123456711"],
-              ["Superior Partners", "P012", "Co-Branding", "09123456712"],
-              ["Smart Solutions", "P013", "Cross-Promotion", "09123456713"],
-              ["Bright Enterprises", "P014", "Franchise Agreement", "09123456714"],
-              ["Pro Consultants", "P015", "Equity Partnership", "09123456715"],
-              ["Fresh Ventures", "P016", "Supply Chain Partnership", "09123456716"],
-              ["EverGreen Innovations", "P017", "Joint Development", "09123456717"],
-              ["Sunshine Collaborations", "P018", "Educational Partnership", "09123456718"],
-              ["Trusted Associates", "P019", "Research Collaboration", "09123456719"],
-              ["Global Unions", "P020", "Training Partnership", "09123456720"]              
+              ["Lumber 2x2x3",     "50 pcs",    "Construction",   "Available"],
+              ["Umbrella Nails",   "10 boxes",  "Hardware",       "Low Stock"],
+              ["Roof",             "20 sheets", "Construction",   "Available"],
+              ["Plywood 4x8",      "30 sheets", "Construction",   "Out of Stock"],
+              ["Cement (40kg)",    "100 bags",  "Construction",   "Available"],
+              ["Paint 1L",         "40 cans",   "Painting",       "Low Stock"]
             ].map((row, index) => [(index + 1) + ".", ...row]),
         ],
       }).render(gridRef.current);
@@ -87,14 +73,14 @@ const Partner_List: React.FC = () => {
         <div className="main-content app-content">
           <div className="container-fluid">
             <Breadcrumb
-                title="Manage Partners"
+                title="Manage Inventory"
                 links={[
-                  { text: "Dashboard", link: "/partners" },
+                  { text: " Dashboard", link: "/customers" },
                 ]}
-                active="Partners"
+                active="Warehouse B"
                 buttons={
-                  <Link to="/partner/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
-                    <i className="ri-add-line"></i> Add New Partner
+                  <Link to="/customer/create" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center gap-2">
+                    <i className="ri-add-line"></i> Add New Item
                   </Link>
                 }
             />
@@ -114,4 +100,4 @@ const Partner_List: React.FC = () => {
   );
 };
 
-export default Partner_List;
+export default Customer_List2;
